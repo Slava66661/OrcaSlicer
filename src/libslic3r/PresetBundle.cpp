@@ -639,9 +639,8 @@ VendorType PresetBundle::get_current_vendor_type()
 
 bool PresetBundle::use_bbl_network()
 {
-    const auto cfg             = printers.get_edited_preset().config;
-    const bool use_bbl_network = is_bbl_vendor() && !cfg.opt_bool("bbl_use_printhost");
-    return use_bbl_network;
+    // Bypass proprietary network restriction completely so generic Wi-Fi hosts can be used
+    return false;
 }
 
 bool PresetBundle::use_bbl_device_tab() {
